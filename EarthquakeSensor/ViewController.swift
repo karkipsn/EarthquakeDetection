@@ -13,15 +13,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var click: UIButton!
     var start:Bool = true
     
+    var myArrayx = [Int]()
+    var myArrayy = [Int]()
+    var myArrayz = [Int]()
+    
     var xvalue: String?
     var yvalue: String?
     var zvalue: String?
     
-    // I dont know the data so set 0.5 above as a shaking please trace set it accordingingly to your accelemerator dat ain ios device shaking
-    let xthreshold = 0.5
-    let ythreshold = 0.5
-    let zthreshold = 0.5
+    // I dont know the data so set 0.5 above as a shaking please trace it accordingly to your accelemerator data in ios device shaking
+    let xthreshold = 2.0
+    let ythreshold = 2.0
+    let zthreshold = 2.0
     
+    @IBOutlet weak var graphView: GraphView!
+    
+    //Label outlets
+    @IBOutlet weak var averageWaterDrunk: UILabel!
+    @IBOutlet weak var maxLabel: UILabel!
+    
+    @IBOutlet weak var stackView: UIStackView!
     
     // With the button Clicked it will check boolean value and perform accordingly
     @IBAction func retreiveData(_sender: UIButton){
@@ -36,9 +47,10 @@ class ViewController: UIViewController {
             // tracing the data with the shaking
             motionManager.startAccelerometerUpdates(to: .main, withHandler: updateData)
             
+            
         }else{
             
-            self.start = false
+            self.start = true
             click.setTitle(nil,for: .normal)
             click.setTitleColor(UIColor.white, for: .normal)
             click.setTitle("Start",for: .normal)
@@ -64,6 +76,9 @@ class ViewController: UIViewController {
         
         // Setting the corner radius for the Button
         click.layer.cornerRadius = 5
+        
+        let max = stackView.arrangedSubviews.count
+        print("\(max)")
         
     }
     
@@ -91,6 +106,10 @@ class ViewController: UIViewController {
         let y = formatter.string(for: accelerometerData.acceleration.y)
         let z = formatter.string(for: accelerometerData.acceleration.z)
         
+        myArrayx.append(Int(xdata))
+        myArrayy.append(Int(ydata))
+        myArrayz.append(Int(zdata))
+        
         xvalue = "\(String(describing: x))"
         yvalue = "\(String(describing: y))"
         zvalue = "\(String(describing: z))"
@@ -99,7 +118,7 @@ class ViewController: UIViewController {
         yLabel.text = yvalue
         zLabel.text = zvalue
         
-        // For socket programming we willl do the following part by:
+        // For socket programming we will do the following part by:
         //1. sending the data to the table in the database and record coordinates
         //2. Retreving the Alert value : yes or no from the server and display alerts accordingly.
         
@@ -109,19 +128,23 @@ class ViewController: UIViewController {
         
         // Without the inclusion of the server part implement by the following:
         
-        
-        
-        if (xdata > xthreshold){
+        if(xdata > xthreshold || ydata > ythreshold || zdata > zthreshold ){
             callAlert()
         }
         
-        if (ydata > ythreshold){
-            callAlert()
+        print(myArrayx.count)
+        if(myArrayx.count >= 7 || myArrayy.count >= 7 || myArrayz.count >= 7 ){
+           // setupGraphDisplay()
+            // Leave the part of graph now just check this array
+            // Bhyaena bhane yo data chai table ma display garaidinu parxa instead of graph
+            // Because displaying data into table is easy
+            // Aile maile static graph hali raxu realtime sanga garna ali jhau bho
+            
+            print(myArrayx)
+            print(myArrayy)
+            print(myArrayz)
         }
         
-        if (zdata > zthreshold){
-            callAlert()
-        }
     }
     
     func callAlert(){
@@ -133,5 +156,38 @@ class ViewController: UIViewController {
         return
         
     }
+    
+   
+    
+    func setupGraphDisplay() {
+        
+        let max = stackView.arrangedSubviews.count
+        print("\(max)")
+        
+
+
+//        for i in (0...myArrayx.count){
+//        graphView.graphPoints.append(myArrayx.distance(from: 0, to: myArrayx.count - 1))
+//        }
+//
+//        for i in (0...myArrayy.count){
+//            
+//            graphView.graphPoints1.append(i)
+//        }
+//        
+//        for i in (0...myArrayz.count){
+//            
+//            graphView.graphPoints2.append(i)
+//        }
+
+        
+        //2 - indicate that the graph needs to be redrawn
+        graphView.setNeedsDisplay()
+      
+        maxLabel.text = "\(graphView.graphPoints.max()!)"
+        
+
+    }
+
     
 }

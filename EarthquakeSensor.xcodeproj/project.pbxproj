@@ -15,6 +15,7 @@
 		FA171A3F225D068700CB5DC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA171A3D225D068700CB5DC2 /* LaunchScreen.storyboard */; };
 		FA171A4A225D068700CB5DC2 /* EarthquakeSensorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA171A49225D068700CB5DC2 /* EarthquakeSensorTests.swift */; };
 		FA171A55225D068700CB5DC2 /* EarthquakeSensorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA171A54225D068700CB5DC2 /* EarthquakeSensorUITests.swift */; };
+		FA50737A2274A4510011E989 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5073792274A4510011E989 /* GraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		FA171A50225D068700CB5DC2 /* EarthquakeSensorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarthquakeSensorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA171A54225D068700CB5DC2 /* EarthquakeSensorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeSensorUITests.swift; sourceTree = "<group>"; };
 		FA171A56225D068700CB5DC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA5073792274A4510011E989 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				FA171A3D225D068700CB5DC2 /* LaunchScreen.storyboard */,
 				FA171A40225D068700CB5DC2 /* Info.plist */,
 				FA171A38225D068700CB5DC2 /* EarthquakeSensor.xcdatamodeld */,
+				FA5073792274A4510011E989 /* GraphView.swift */,
 			);
 			path = EarthquakeSensor;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				FA171A34225D068700CB5DC2 /* ViewController.swift in Sources */,
 				FA171A32225D068700CB5DC2 /* AppDelegate.swift in Sources */,
 				FA171A3A225D068700CB5DC2 /* EarthquakeSensor.xcdatamodeld in Sources */,
+				FA50737A2274A4510011E989 /* GraphView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +511,7 @@
 				FA171A5B225D068700CB5DC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA171A5C225D068700CB5DC2 /* Build configuration list for PBXNativeTarget "EarthquakeSensorTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +520,7 @@
 				FA171A5E225D068700CB5DC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA171A5F225D068700CB5DC2 /* Build configuration list for PBXNativeTarget "EarthquakeSensorUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +529,7 @@
 				FA171A61225D068700CB5DC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
