@@ -1,5 +1,7 @@
 import UIKit
 import CoreMotion
+//import Firebase
+//
 
 
 class ViewController: UIViewController {
@@ -110,6 +112,15 @@ class ViewController: UIViewController {
         myArrayy.append(Int(ydata))
         myArrayz.append(Int(zdata))
         
+        // Adding to firebase
+//        let myFirebase = Database.database().reference(withPath: "data")
+        
+//        let usersRef = myFirebase.child(coordinates)
+//        let dict = ["X": xdata, "Y": ydata, "Z": zdata]
+//        
+//        let thisUserRef = usersRef.childByAutoId()
+//        thisUserRef.setValue(dict)
+        
         xvalue = "\(String(describing: x))"
         yvalue = "\(String(describing: y))"
         zvalue = "\(String(describing: z))"
@@ -187,6 +198,27 @@ class ViewController: UIViewController {
         maxLabel.text = "\(graphView.graphPoints.max()!)"
         
 
+    }
+    
+    func readfromFirebase(){
+        
+//        ref.observe(.value, with: { snapshot in
+//            // 2
+//            var datas: [Datas] = []
+//            
+//            // 3
+//            for child in snapshot.children {
+//                // 4
+//                if let snapshot = child as? DataSnapshot,
+//                    let valueItem = Datas(snapshot: snapshot) {
+//                    datas.append(valueItem)
+//                }
+//            }
+//           print(datas)
+//            // if intended to show into table or graph firther steps
+//        })
+
+    
     }
 
     
